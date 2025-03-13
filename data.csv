@@ -1,4 +1,4 @@
-﻿測試項目,Test Item,Test Item,Remark
+﻿測試項目,Test Item,Function,Remark
 bRAID11,Raid 設置與狀態檢測測試,建立Raid 0磁碟陣列建立並檢查內部狀態,
 cBDT10,確認Board Mfg. Date/Time(BDT)  ,,
 cBIOS11,BIOS版本確認,,
