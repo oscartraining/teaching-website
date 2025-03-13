@@ -15,7 +15,8 @@
 <body>
     <h2>Excel 資料查詢</h2>
     <label for="test-input">輸入測試項目：</label>
-    <input type="text" id="test-input" placeholder="輸入測試項目..." onkeyup="searchData()">
+    <input type="text" id="test-input" placeholder="輸入測試項目...">
+    <button onclick="searchData()">搜尋</button>
     
     <h3>對應資料：</h3>
     <table id="result-table">
@@ -42,18 +43,38 @@
                     dynamicTyping: true,
                     complete: function(results) {
                         data = results.data;
+                        console.log("CSV 載入完成", data); // 除錯訊息
                     }
                 });
             });
 
+        // 監聽 Enter 鍵
+        document.getElementById("test-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                searchData();
+            }
+        });
+
         // 搜尋並顯示對應數據
         function searchData() {
-            let input = document.getElementById("test-input").value.toLowerCase();
+            let input = document.getElementById("test-input").value.toLowerCase().trim();
             let resultTable = document.querySelector("#result-table tbody");
             resultTable.innerHTML = "";
 
+            if (data.length === 0) {
+                console.log("資料未載入，請稍後再試");
+                return;
+            }
+
             let filteredData = data.filter(row => row["測試項目"] && row["測試項目"].toLowerCase().includes(input));
             
+            if (filteredData.length === 0) {
+                let tr = document.createElement("tr");
+                tr.innerHTML = `<td colspan='4'>找不到資料</td>`;
+                resultTable.appendChild(tr);
+                return;
+            }
+
             filteredData.forEach(row => {
                 let tr = document.createElement("tr");
                 tr.innerHTML = `
