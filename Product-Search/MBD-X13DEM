@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBD-X13DEM 產品資訊</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        h1 { color: #333; }
+        img { max-width: 90%; height: auto; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>MBD-X13DEM 產品資訊</h1>
+    <p>以下是 MBD-X13DEM 的相關圖片：</p>
+
+    <img src="images/MBD-X13DEM location.png" alt="MBD-X13DEM 位置圖">
+    <p>MBD-X13DEM 位置圖</p>
+
+    <img src="images/MBD-X13DEM Block Diagram.png" alt="MBD-X13DEM 方塊圖">
+    <p>MBD-X13DEM 方塊圖</p>
+
+    <br>
+    <a href="product-search.html">🔙 返回產品搜尋</a>
+</body>
+</html>
