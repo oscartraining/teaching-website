@@ -76,16 +76,12 @@
             }
 
             filteredData.forEach(row => {
-                let testItem = row["測試項目"] || "";
-                let functionItem = row["Test Item.1"] || "";  // 修正 Function 欄位對應
-                let remarkItem = row["Remark"] || "";
-                
                 let tr = document.createElement("tr");
                 tr.innerHTML = `
-                    <td>${testItem}</td>
+                    <td>${row["測試項目"] || ""}</td>
                     <td>${row["Test Item"] || ""}</td>
-                    <td>${functionItem}</td>
-                    <td>${remarkItem}</td>
+                    <td>${row["Function"] || ""}</td>
+                    <td>${row["Remark"] || ""}</td>
                 `;
                 resultTable.appendChild(tr);
             });
