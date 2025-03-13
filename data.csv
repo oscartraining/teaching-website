@@ -1,0 +1,94 @@
+﻿Sort,Function,Test Item,Test Item,Remark
+b,bRAID11,Raid 設置與狀態檢測測試,建立Raid 0磁碟陣列建立並檢查內部狀態,
+c,cBDT10,確認Board Mfg. Date/Time(BDT)  ,,
+c,cBIOS11,BIOS版本確認,,
+c,cCOM14,序列埠 (COM Port) 測試,"python3 ./SerialTest.py (參考PySerial 的官方說明書，是用Python 操作 COM port的指南)
+RTS (Request To Send) <-> CTS (Clear To Send)
+DTR (Data Terminal Ready) <-> DSR (Data Set Ready)
+DTR <-> DCD (Data Carrier Detect)
+RTS <-> RI (Ring Indicator)
+TXD (Transmit Data) <-> RXD (Receive Data)",
+c,cCPLD10,CPLD FW版本讀取確認,CPLD_Version_Defined,
+c,cCPU10,CPU版本,"CPU數量
+UPI (Ultra Path Interconnect) 最低速度 (高速點對點傳輸技術)
+UPI 連線數量為",
+c,cDIMM11,記憶體測試,"DIMM_min_size
+DIMM_min_speed_defined
+DIMM_count_by_size_defined",
+c,cDMI10,Direct Media Interface 測試 (Intel 設計的一種高速點對點傳輸匯流排),"DMI_Link_Speed_Defined=8
+DMI_Link_Bandwidth_Defined=8",
+c,cEject20,熱插拔測試,透過IPMICFG工具移除NVME，並確認是否NVME亮綠燈,
+c,cFWInventory10,FW版本讀取確認,BMC、BIOS、CPLD……等,
+c,cIPMI11,BMC版本確認、IPMI FRU資訊確認,,
+c,cJL10_JL1_Short,短路JL1模擬Chassis入侵狀態 (透過BMC sensor reading),讀取sensor reading 顯示Chassis異常 --> 清除入侵警報 --> 讀取sensor reading確認chassis正常 --> 短路JL1 --> chassis異常 --> 清除入侵警報,
+c,cMEMLatency10,記憶體延遲,"MEMLatency_toolpath=Intel_MEMLatency/mlc_v3.11a
+MEMLatency_InjectDelay=0 (沒有額外延遲輸入)
+MEMLatency_latency_threshold=500 (設定 ns)",
+c,cNCSI11,BMC網路模式測試,"0: Dedicated --> BMC 獨立使用專用管理網路。
+1: Shared --> BMC 使用與伺服器主網路介面共享的 LAN 端口。
+2: Failover --> BMC 會在 Dedicated / Shared 之間自動切換。
+3: Share-AIOM --> 使用 AIOM 模組的共享 LAN 端口（本次測試的目標）。
+5: Failover-AIOM --> 使用 AIOM 模組的 Failover 模式（在 AIOM 介面與 Dedicated 介面之間切換）。",
+c,cNVMeHD10,NVME HD測試,列出所有NVME數量，確認與ini設定一樣,
+c,cNVMeLED10,LED燈號測試,點亮背板上NVME的燈號確認是否可以locate LED,
+c,cOHLED10,MBD overheat LED測試,OP目視檢驗,
+c,cPCI20,PCIE相關規格測試,"參考ini檔案確認有沒有連到PCIE
+數量
+速度
+通道數量",
+c,cPOWER10,PSU測試,"定義數量、備用電源測試
+備用電源：OP斷電PSU1，確認PSU2正常工作；斷電PSU2，確認PSU1正常工作",
+c,cRGB10,MBD RGB顯示測試,OP目視檢驗,
+c,cSATAHD10,SATA 硬碟測試,"SATA 埠檢查 (On-board I/O Ports)
+SATA 硬碟連接埠測試 (目標Qty會定義)
+SATA 速度測試，確認是否達到 6G (6.0 Gb/s) (by model)",
+c,cSGPIO12,SGPIO (Serial General Purpose Input/Output) 總線控制測試,"測試磁碟數量，每個通道包含兩個裝置(MBD-X13DEM為舉例)
+測試LED (locate) --> 確認LED有變紅燈
+關閉LED",
+c,cTestBoardLED10,LED燈號測試,OP目視檢驗,
+c,cTIME11,時間同步測試 ,本機時間與伺服器時間的誤差須小於 5 分鐘,
+c,cTPM11,TPM測試,"主機板內建 TPM 晶片是否正常運作
+TPM Header",
+c,cUID10,UID燈號測試,OP目視檢驗,
+c,cUSB20,讀取USB設定,"Setup by model
+USB3 / USB2 log裡面會定義要認到的裝置",
+c,cUSBFW20,讀取USB FW版本,"FW_Register_Defined
+FW_Version_Defined",
+c,cVRM11,VRM測試,"比對VRM燒錄有沒有問題
+by model看有多少個address，裡面的registor有沒有fail",
+d,dBIOS11,Clear Event log,,
+d,dBMC11,"Clear Event Log, Clear System Log",,
+d,dRAID11,清除Raid,,
+r,rBIOS11,Load BIOS default,,
+r,rBMC13,Load BMC default,,
+r,rwHD10,硬碟讀寫效能測試,"-direct=1 --> 直接存取硬碟，繞過系統 cache
+-rw=randrw --> 隨機讀寫測試
+-ioengine=libaio --> 使用 Linux AIO 機制來測試
+-bs=16k --> 讀寫區塊大小 = 16KB
+-size=5G --> 每個硬碟測試 5GB 資料
+-runtime=30 --> 測試時間 30 秒",
+t,tBURN10,CPU相關測試,"使用 stress 工具來進行系統壓力測試 (模擬CPU密集工作)
+跑2000位數的PI",
+t,tFAN10,風扇測試,"確認風扇數量正確
+確認風扇高速/低速符合規格 (sensor reading_ spec from BMC HW)",
+t,tIPMI13,"BMC 遠端登入與 SOL/DVO 測試
+SOL: Serial over LAN
+DVO: Remote Console","透過CMServerP (BMC遠端管理工具完成測試)
+1.顯示基本設定(帳密、CMServerP cmdline設定、IPMICFG版本…等)
+2.執行./IPMICFG.x64 -raw 30 70 0c 1 00回到IPMI LAN 模式 = 00 (專用模式, Dedicated)
+3.執行./IPMICFG.x64 -raw 30 70 0c 00 查詢當前IPMI LAN模式確認00
+4.登入BMC確認網速是否與ini設定一樣
+5.啟動BMC並測試各項功能 (port 6666)
+6.下各種cmd line 1 2 4 6 22 24 28 30",
+t,tIPMIrespone10,BMC IPMI 回應時間測試,"確認BMC登入時間：設定30sec (透過WEB輸入帳號密碼)，並已獲得BMC版本來確認有登入
+採用OOB方式 (out of band)",
+t,tME12,Intel ME (Management Engine) SPS 測試,"使用tME.cfg檔案，目標PASS數量18個 (MBD-X13DEM為舉例)
+大概項目： Intel ME FW版本、 Intel ME 狀態暫存器 (FW Status Registers)、Intel ME / SPS HW與FW檢查、 Intel ME SPI Flash 相關資訊、ME FW完整性 & 功能測試",
+t,tSDHM11,讀取BMC sensor reading,"sensor reading  (spec from BMC HW)
+INI會定義要卡控的項目(數數量)",
+u,uBMCFW10,BMC韌體版本檢查與更新流程,檢查BMC是否版本正確,
+w,wBDT11,寫入Board Mfg. Date/Time(BDT)  ,,
+w,wDMIT10,透過 AMI(American Megatrends)DMI Edit Utility 來修改 BIOS 內的 DMI Table,寫/BP (model name) /BS (SMC SN) /BV (Revision),
+w,wIPMI11,針對 BMC設定,"KCS MAC Set --> 設定 IPMI MAC 地址。
+ID/Password change --> 變更 BMC 登入帳號密碼。
+FRU0 FRU1 flash --> 寫入 FRU 設備資訊",
