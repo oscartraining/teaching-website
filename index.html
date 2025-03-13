@@ -52,14 +52,14 @@
             let resultTable = document.querySelector("#result-table tbody");
             resultTable.innerHTML = "";
 
-            let filteredData = data.filter(row => row["測試項目 (B)"] && row["測試項目 (B)"].toLowerCase().includes(input));
+            let filteredData = data.filter(row => row["測試項目"] && row["測試項目"].toLowerCase().includes(input));
             
             filteredData.forEach(row => {
                 let tr = document.createElement("tr");
                 tr.innerHTML = `
                     <td>${row["測試項目"] || ""}</td>
                     <td>${row["Test Item"] || ""}</td>
-                    <td>${row["Function"] || ""}</td>
+                    <td>${row["Test Item.1"] || ""}</td>
                     <td>${row["Remark"] || ""}</td>
                 `;
                 resultTable.appendChild(tr);
