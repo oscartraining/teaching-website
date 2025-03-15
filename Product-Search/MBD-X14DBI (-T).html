@@ -27,7 +27,7 @@
     <a href="Product-Search.html">🔙 返回產品搜尋</a>
 </body>
 <hr>  <!-- 加一條分隔線，區分圖片和規格表 -->
-<h2>New Product Specification</h2>
+<h2>Product Specification</h2>
 <table border="1" width="100%" cellspacing="0" cellpadding="8">
     <tr>
         <th colspan="2" style="background-color:#ddd; text-align:center;">Motherboard Features</th>
@@ -35,104 +35,108 @@
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>CPU</b></td>
         <td style="text-align: left;">
-            • Supports dual 4th/5th Gen Intel Xeon Scalable Processors (in Socket E LGA 4677) with four UPIs (20 GT/s max.) and a thermal design power (TDP) up to 350W<br>
-            • SP XCC, SP MCC, and Max Series (HBM) SKUs supported
+            • Supports dual Intel® Xeon® 6700/6500-Series Processors with P-Cores and Intel® Xeon® 
+              6700-Series Processors with E-Cores (in LGA 4710 Socket E2) with three UPIs (24 GT/s max.) 
+              and a thermal design power (TDP) up to 350 W.
         </td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>Memory</b></td>
         <td style="text-align: left;">
-            • Supports up to 8 TB of 3DS RDIMM/RDIMM DDR5 (288-pin) ECC memory<br>
-            • Memory speeds of up to 4800 MT/s (DDR5-4400 MT/s when fully populated) in 16 memory slots (4th Generation Intel Xeon)<br>
-            • Memory speeds of up to 5600 MT/s (DDR5-4400 MT/s when fully populated) in 16 memory slots (5th Generation Intel Xeon)<br>
-            <b>Note:</b> Memory speed/capacity support depends on the processors used in the system.
+            • Supports up to 4 TB of RDIMM DDR5 ECC memory with speeds of up to 6400 MT/s (1DPC) and 
+              MCR/MRDIMM memory with speeds of up to 8000 MT/s in 16 DIMM slots.
         </td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>DIMM Size</b></td>
         <td style="text-align: left;">
-            • Up to 256GB<br>
-            <b>Note:</b> For the latest CPU/memory updates, please refer to our website at 
-            <a href="http://www.supermicro.com/products/motherboard">Supermicro Motherboard</a>.
+            • 32 GB, 64 GB, 96 GB, 128 GB, and 256 GB.<br>
+            <b>Note:</b> Memory size support depends on the processor used in the system.
         </td>
-    </tr>
-    <tr>
-        <td style="background-color:#ccc; text-align: left;"><b>Chipset</b></td>
-        <td style="text-align: left;">• Intel PCH C741</td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>Expansion Slots</b></td>
         <td style="text-align: left;">
-            • Eight PCIe 5.0 x16 via GenZ 4C/MCIO connectors<br>
-            • Up to sixteen PCIe 5.0 NVMe x4 connectors with support of four connections each port<br>
-            • Two NVMe PCIe 3.0 x2/SATA3 Hybrid M.2 ports (with M-Key 2280 and 22110 support)<br>
-            • Two PCIex 5.0 x16 Slim-AIOM via GenZ 4C+/MCIO connectors<br>
-            • One SlimSAS LP (MCIO) connector with support of eight SATA 3.0 connections (RAID 0, 1, 5, 10)
+            • Four PCIe 5.0 x16 slots (SLOT2/SLOT4 supported by CPU1, SLOT3/SLOT5 supported by CPU2).<br>
+            • Two PCIe 5.0 x8 slots (SLOT1 supported by CPU1, SLOT6 supported by CPU2).<br>
+            • Two PCIe 5.0 x4 NVMe M.2 slots (with support of M-Key 2280 and 22110 form factors).<br>
+            • Three MCIO 5.0 x8 connectors (P1_NVME0/1, P1_NVME2/3, and P2_NVME4/5) with support of 
+              six PCIe 5.0 x4 NVMe connections.<br>
+            <b>Note:</b> Retimer card is supported only in two PCIe slots: SLOT2 and SLOT5.
         </td>
     </tr>
     <tr>
-        <td style="background-color:#ccc; text-align: left;"><b>Baseboard Management Controller (BMC)/Network</b></td>
+        <td style="background-color:#ccc; text-align: left;"><b>Network Controllers</b></td>
         <td style="text-align: left;">
-            • ASPEED AST2600 BMC<br>
-            • One dedicated BMC LAN/VGA (via AST2600 BMC HW RoT)
+            • Two 1 GbE LAN ports supported by Broadcom 5720 LAN controller on X14DBI.<br>
+            • Two 10 GbE LAN ports supported by Broadcom 57416 LAN controller on X14DBI-T.
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color:#ccc; text-align: left;"><b>Baseboard Management Controller (BMC)</b></td>
+        <td style="text-align: left;">
+            • ASPEED AST2600 with one dedicated BMC LAN port and one shared LAN port (LAN1).
         </td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>Graphics</b></td>
-        <td style="text-align: left;">• Graphics controller and VGA support via ASPEED AST2600 BMC</td>
+        <td style="text-align: left;">
+            • Graphics controller via ASPEED AST2600 BMC.
+        </td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>I/O Devices</b></td>
         <td style="text-align: left;">
-            • One VGA connection header (JFP2) for dedicated VGA via BMC and front-accessible VGA<br>
-            • One LP SlimSAS x8 I/O connector (JIO1) for I/O mezzanine card to provide VGA/COM/USB*2/RJ45 (dedicated BMC LAN)
+            • One serial port on the rear I/O (COM1).<br>
+            • One front accessible serial port header (COM2).<br>
+            • Two SATA 3.0 ports (SATA0 and SATA1) with support of RAID 0/1.<br>
+            • One SlimSAS x8 connector (JS1 for SATA2–9) with support of eight SATA 3.0 connections 
+              (RAID 0, 1, 5, and 10 supported).<br>
+            • One VGA port on the rear I/O.<br>
+            • One VGA connection header (JFP2).
         </td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>Peripheral Devices</b></td>
         <td style="text-align: left;">
-            • Two USB 2.0 ports on the I/O riser board via cable<br>
-            • One USB 3.2 Gen1 (5Gbps) header on the motherboard supporting two USB connections
+            • Four USB 3.0 ports on the rear I/O (5 Gbps, USB0/1 and USB2/3, Type-A).<br>
+            • One USB 3.0 header with support of two connections (5 Gbps, USB4/5).
         </td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>BIOS</b></td>
         <td style="text-align: left;">
-            • AMI SPI BIOS<br>
-            • EFI GUI, SPI dual/quad speed control, riser card auto detection, IPMIView, SMCIPMITOOL, IPMI CFG, Redundant PSU detection, SPM, SUM-OOB/InBand
+            • AMI SPI BIOS.<br>
+            • EFI GUI, SPI dual/quad speed control, riser card auto detection support, Real Time Clock (RTC) 
+              wakeup, IPMIView, SMCIPMITOOL, IPMI CFG, Redundant power supply unit detection, SPM, 
+              and SAA-OOB/InBand.
         </td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>Power Management</b></td>
         <td style="text-align: left;">
-            • ACPI power management, S1, S4, S5 support<br>
-            • Power button override mechanism<br>
-            • Power-on mode for AC power recovery<br>
-            • Wake-on-LAN<br>
-            • Power supply monitoring
+            • ACPI power management.<br>
+            • S5 support.<br>
+            • Power button override mechanism.<br>
+            • Power-on mode for AC power recovery.<br>
+            • Wake-on-LAN.
         </td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>System Health Monitoring</b></td>
         <td style="text-align: left;">
-            • Onboard voltage & temperature monitoring (CPU, RAM, LAN, PCH, etc.)<br>
-            • Platform Environment Control Interface (PECI) support
-        </td>
-    </tr>
-    <tr>
-        <td style="background-color:#ccc; text-align: left;"><b>System Management</b></td>
-        <td style="text-align: left;">• Chassis intrusion header and detection, Server platform service</td>
-    </tr>
-    <tr>
-        <td style="background-color:#ccc; text-align: left;"><b>Security</b></td>
-        <td style="text-align: left;">
-            • TPM (Trusted Platform Module) support (*Optional part needed)<br>
-            • Root of Trust (RoT) support to protect firmware security
+            • Onboard voltage monitoring for +12 V, +5 V / +5 V standby, +3.3 V, and +3.3 V standby, Vcore.<br>
+            • Onboard temperature monitoring for CPU, VRM, LAN, system, and memory.<br>
+            • Eight processor switch phase voltage regulators.<br>
+            • Processor thermal trip support.<br>
+            • Platform Environment Control Interface (PECI).
         </td>
     </tr>
     <tr>
         <td style="background-color:#ccc; text-align: left;"><b>Dimensions</b></td>
-        <td style="text-align: left;">• 17.0" (W) x 11.5" (L) E-ATX (431.80 mm x 292.1 mm)</td>
+        <td style="text-align: left;">
+            • E-ATX 13.4" (L) x 12.5" (W) (339.85 mm x 318.5mm).
+        </td>
     </tr>
 </table>
 </html>
