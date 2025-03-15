@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBD-X14DBI (-T) Information</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        h1 { color: #333; }
+        img { max-width: 90%; height: auto; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>MBD-X14DBI (-T)<h1>
+    <p>Relate Information: </p>
+
+    <img src="../images/MBD-X14DEM product photo.png" alt="MBD-X14DBI (-T) Product Image">
+    <p>MBD-X14DBI (-T) Product Image</p>
+    
+    <img src="../images/MBD-X14DBI (-T) location.png" alt="MBD-X14DBI (-T) Quick Reference">
+    <p>MBD-X14DBI (-T) Quick Reference</p>
+
+    <img src="../images/MBD-X14DBI (-T) DIMM.png" alt="MBD-X14DBI (-T) DIMM Location">
+    <p>MBD-X14DBI (-T) DIMM Location</p>
+    
+    <img src="../images/MBD-X14DBI (-T) Block Diagram.png" alt="MBD-X14DBI (-T) Block Diagram">
+    <p>MBD-X14DBI (-T) Block Diagram</p>
+
+    <br>
+    <a href="Product-Search.html">🔙 返回產品搜尋</a>
+</body>
+<hr>  <!-- 加一條分隔線，區分圖片和規格表 -->
+<h2>MBD-X14DBI (-T) Specification</h2>
+<table border="1" width="100%" cellspacing="0" cellpadding="8">
+   <table>
+        <tr><th colspan="2" style="text-align:center;">Motherboard Features</th></tr>
+        <tr><td>CPU</td><td>
+            • Supports dual 4th/5th Gen Intel Xeon Scalable Processors (in Socket E LGA 4677) with four UPIs (20 GT/s max.) and a thermal design power (TDP) up to 350W<br>
+            • SP XCC, SP MCC, and Max Series (HBM) SKUs supported
+        </td></tr>
+        <tr><td>Memory</td><td>
+            • Supports up to 8 TB of 3DS RDIMM/RDIMM DDR5 (288-pin) ECC memory<br>
+            • Memory speeds of up to 4800 MT/s (DDR5-4400 MT/s when fully populated) in 16 memory slots (4th Generation Intel Xeon)<br>
+            • Memory speeds of up to 5600 MT/s (DDR5-4400 MT/s when fully populated) in 16 memory slots (5th Generation Intel Xeon)<br>
+            <b>Note:</b> Memory speed/capacity support depends on the processors used in the system.
+        </td></tr>
+        <tr><td>DIMM Size</td><td>
+            • Up to 256GB<br>
+            <b>Note:</b> For the latest CPU/memory updates, please refer to our website at 
+            <a href="http://www.supermicro.com/products/motherboard">Supermicro Motherboard</a>.
+        </td></tr>
+        <tr><td>Chipset</td><td>• Intel PCH C741</td></tr>
+        <tr><td>Expansion Slots</td><td>
+            • Eight PCIe 5.0 x16 via GenZ 4C/MCIO connectors<br>
+            • Up to sixteen PCIe 5.0 NVMe x4 connectors with support of four connections each port<br>
+            • Two NVMe PCIe 3.0 x2/SATA3 Hybrid M.2 ports (with M-Key 2280 and 22110 support)<br>
+            • Two PCIex 5.0 x16 Slim-AIOM via GenZ 4C+/MCIO connectors<br>
+            • One SlimSAS LP (MCIO) connector with support of eight SATA 3.0 connections (RAID 0, 1, 5, 10)
+        </td></tr>
+        <tr><td>BMC/Network</td><td>
+            • ASPEED AST2600 BMC<br>
+            • One dedicated BMC LAN/VGA (via AST2600 BMC HW RoT)
+        </td></tr>
+        <tr><td>Graphics</td><td>• Graphics controller and VGA support via ASPEED AST2600 BMC</td></tr>
+        <tr><td>I/O Devices</td><td>
+            • One VGA connection header (JFP2) for dedicated VGA via BMC and front-accessible VGA<br>
+            • One LP SlimSAS x8 I/O connector (JIO1) for I/O mezzanine card to provide VGA/COM/USB*2/RJ45 (dedicated BMC LAN)
+        </td></tr>
+        <tr><td>Peripheral Devices</td><td>
+            • Two USB 2.0 ports on the I/O riser board via cable<br>
+            • One USB 3.2 Gen1 (5Gbps) header on the motherboard supporting two USB connections
+        </td></tr>
+        <tr><td>BIOS</td><td>
+            • AMI SPI BIOS<br>
+            • EFI GUI, SPI dual/quad speed control, riser card auto detection, IPMIView, SMCIPMITOOL, IPMI CFG, Redundant PSU detection, SPM, SUM-OOB/InBand
+        </td></tr>
+        <tr><td>Power Management</td><td>
+            • ACPI power management, S1, S4, S5 support<br>
+            • Power button override mechanism<br>
+            • Power-on mode for AC power recovery<br>
+            • Wake-on-LAN<br>
+            • Power supply monitoring
+        </td></tr>
+        <tr><td>System Health Monitoring</td><td>
+            • Onboard voltage & temperature monitoring (CPU, RAM, LAN, PCH, etc.)<br>
+            • Platform Environment Control Interface (PECI) support
+        </td></tr>
+        <tr><td>System Management</td><td>• Chassis intrusion header and detection, Server platform service</td></tr>
+        <tr><td>Security</td><td>
+            • TPM (Trusted Platform Module) support (*Optional part needed)<br>
+            • Root of Trust (RoT) support to protect firmware security
+        </td></tr>
+        <tr><td>Dimensions</td><td>• 17.0" (W) x 11.5" (L) E-ATX (431.80 mm x 292.1 mm)</td></tr>
+    </table>
+</html>
