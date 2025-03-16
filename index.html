@@ -5,29 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>主頁 - 教學網站</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        h1 { color: #333; }
-        .menu { display: flex; flex-direction: column; align-items: center; }
+        /* 設定背景圖片 */
+        body { 
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url('background/server.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        /* 遮罩層，讓背景不會影響可讀性 */
+        .overlay {
+            background: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 { 
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .menu a {
             display: block;
-            width: 200px;
+            width: 250px;
             padding: 15px;
             margin: 10px;
             text-decoration: none;
-            background-color: #007bff;
+            background-color: rgba(0, 123, 255, 0.8);
             color: white;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
         }
-        .menu a:hover { background-color: #0056b3; }
+
+        .menu a:hover { 
+            background-color: rgba(0, 86, 179, 0.9);
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
-    <h1>歡迎來到測試相關教學網站</h1>
-    <p>請選擇搜尋項目：</p>
-    <div class="menu">
-        <a href="Function-Test/function-test.html">🔍 Function Test Search</a>
-        <a href="Product-Search/Product-Search.html">📦 產品相關 Search</a>
+    <div class="overlay">
+        <h1>歡迎來到測試相關教學網站</h1>
+        <p>請選擇搜尋項目：</p>
+        <div class="menu">
+            <a href="Function-Test/function-test.html">🔍 Function Test Search</a>
+            <a href="Product-Search/Product-Search.html">📦 產品相關 Search</a>
+            <a href="test/test1.html">🧪 Test 1</a>
+            <a href="test/test2.html">🧪 Test 2</a>
+            <a href="test/test3.html">🧪 Test 3</a>
+            <a href="test/test4.html">🧪 Test 4</a>
+            <a href="test/test5.html">🧪 Test 5</a>
+        </div>
     </div>
 </body>
 </html>
