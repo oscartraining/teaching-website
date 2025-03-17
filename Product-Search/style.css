@@ -1,6 +1,11 @@
 /* 全局設計 */
 body {
-    background-color: #0d1117;
+    background-image: url('../background/product-search.jpeg'); /* 使用背景圖片 */
+    background-size: cover; /* 背景覆蓋整個螢幕 */
+    background-position: center; /* 圖片置中 */
+    background-attachment: fixed; /* 背景固定不滾動 */
+    background-repeat: no-repeat; /* 不重複顯示 */
+    
     color: #ffffff;
     font-family: 'Arial', sans-serif;
     text-align: center;
