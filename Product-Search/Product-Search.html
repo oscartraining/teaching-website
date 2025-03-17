@@ -1,38 +1,35 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product-Search</title>
-    <link rel="stylesheet" href="../background/styles.css">
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        h1 { color: #333; }
-        .menu { display: flex; flex-direction: column; align-items: center; }
-        .menu a {
-            display: block;
-            width: 250px;
-            padding: 15px;
-            margin: 10px;
-            text-decoration: none;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            font-size: 18px;
-        }
-        .menu a:hover { background-color: #0056b3; }
-    </style>
+    <title>Product Selection</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Product-Search</h1>
-    <p>Please select product</p>
-    <div class="menu">
-        <a href="MBD-X13DEM.html">📌 MBD-X13DEM</a>
-        <a href="MBD-X14DBI (-T).html">📌 MBD-X14DBI (-T)</a>
-        <a href="MBD-X14DBT-B.html">📌 MBD-X14DBT-B</a>
-        <a href="MBD-X14DBT-FAP (FLAP).html">📌 MBD-X14DBT-FAP (FLAP)</a>
+    <h1>PRODUCT SELECTION</h1>
+    <p>Please select a product</p>
+
+    <!-- 滑動容器 -->
+    <div class="slider-container">
+        <button class="prev-btn">◀</button>
+        <div class="product-slider">
+            <div class="product-list">
+                <a href="MBD-X13DEM.html" class="product">🔧 MBD-X13DEM</a>
+                <a href="MBD-X14DBI-T.html" class="product">🔧 MBD-X14DBI (-T)</a>
+                <a href="MBD-X14DBT-B.html" class="product">🔧 MBD-X14DBT-B</a>
+                <a href="MBD-X14DBT-FAP.html" class="product">🔧 MBD-X14DBT-FAP (FLAP)</a>
+                <a href="MBD-X15D.html" class="product">🔧 MBD-X15D</a>
+                <a href="MBD-X16F.html" class="product">🔧 MBD-X16F</a>
+                <a href="MBD-X17G.html" class="product">🔧 MBD-X17G</a>
+                <a href="MBD-X18H.html" class="product">🔧 MBD-X18H</a>
+            </div>
+        </div>
+        <button class="next-btn">▶</button>
     </div>
-    <br>
-    <a href="../index.html">🔙 Return</a>
+
+    <a href="/index.html" class="return">🔙 Return</a>
+
+    <script src="script.js"></script>
 </body>
 </html>
