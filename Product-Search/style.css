@@ -1,0 +1,109 @@
+/* 全局設計 */
+body {
+    background-color: #0d1117;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+/* 標題樣式 */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #00bfff;
+    text-shadow: 0 0 15px #00bfff;
+}
+
+/* 產品滑動容器 */
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+}
+
+/* 產品滾動區域 */
+.product-slider {
+    width: 70%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 隱藏水平滾動條 */
+.product-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* 產品列表 */
+.product-list {
+    display: flex;
+    gap: 15px;
+}
+
+/* 產品按鈕 */
+.product {
+    display: inline-block;
+    width: 180px;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #007bff, #00bfff);
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 滑鼠懸停 */
+.product:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
+}
+
+/* 左右按鈕 */
+.prev-btn, .next-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #00bfff;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* 按鈕懸停 */
+.prev-btn:hover, .next-btn:hover {
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+/* 返回按鈕 */
+.return {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4081;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.6);
+}
+
+/* 返回按鈕懸停 */
+.return:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 64, 129, 0.9);
+}
