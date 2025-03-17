@@ -58,14 +58,38 @@ h1 {
 /* 產品按鈕 */
 .product {
     display: inline-block;
-    min-width: 180px; /* 最小寬度 */
-    max-width: 250px; /* 最大寬度 */
-    padding: 15px;
+    min-width: 180px; /* 設定最小寬度，避免按鈕過小 */
+    max-width: 320px; /* 設定最大寬度，防止按鈕太長 */
+    padding: 15px 20px;
     text-align: center;
-    white-space: nowrap; /* 防止換行 */
-    overflow: hidden;
-    text-overflow: ellipsis; /* 當超出時顯示省略號 */
     
+    /* 讓文字完整顯示 */
+    white-space: normal; /* 允許換行 */
+    word-wrap: break-word; /* 超長文字自動換行 */
+    overflow: hidden; /* 防止文字超出按鈕範圍 */
+    
+    /* 按鈕樣式 */
+    background: linear-gradient(45deg, #007bff, #00bfff); /* 霓虹藍漸變 */
+    border-radius: 10px; /* 圓角設計 */
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* 霓虹藍光影 */
+
+    /* 文字樣式 */
+    color: #ffffff !important; /* 強制文字為白色 */
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none; /* 移除底線 */
+    text-shadow: 0 0 10px #00bfff; /* 霓虹藍色光暈，讓字更清楚 */
+
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* 滑鼠懸停效果 */
+.product:hover {
+    transform: scale(1.1); /* 按鈕放大 10% */
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.8); /* 強化光暈 */
+    color: #00ffff; /* 滑鼠懸停時字體變亮藍色 */
+}
+
     /* 按鈕樣式 */
     background: linear-gradient(45deg, #007bff, #00bfff); /* 霓虹藍漸變 */
     border-radius: 10px; /* 圓角 */
