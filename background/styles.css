@@ -1,0 +1,61 @@
+/* 設定背景 */
+body {
+    background-color: #0d1117;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+/* 主標題 */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #00bfff;
+    text-shadow: 0 0 15px #00bfff;
+}
+
+/* 產品選擇按鈕 */
+.menu a {
+    display: block;
+    width: 250px;
+    padding: 15px;
+    margin: 15px auto;
+    text-decoration: none;
+    background: linear-gradient(45deg, #007bff, #00bfff);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+}
+
+/* 滑鼠懸停效果 */
+.menu a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
+}
+
+/* 返回按鈕 */
+.return {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4081;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.6);
+}
+
+/* 滑鼠懸停時 */
+.return:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 64, 129, 0.9);
+}
