@@ -55,32 +55,36 @@ h1 {
 }
 
 /* 產品按鈕 */
-/* 產品按鈕 */
 .product {
-    display: inline-block;
-    min-width: 180px; /* 設定最小寬度，避免按鈕過小 */
-    max-width: 320px; /* 設定最大寬度，防止按鈕太長 */
-    padding: 15px 20px;
+    display: flex; /* 讓內部內容垂直對齊 */
+    align-items: center; /* 讓文字內容垂直居中 */
+    justify-content: center; /* 水平置中 */
+    
+    min-width: 180px; /* 最小寬度 */
+    max-width: 320px; /* 最大寬度，確保長名稱不被擠壓 */
+    height: 60px; /* 統一按鈕高度 */
+    
+    padding: 10px 15px;
     text-align: center;
-    
-    /* 讓文字完整顯示 */
+
+    /* 讓長字完整顯示 */
     white-space: normal; /* 允許換行 */
-    word-wrap: break-word; /* 超長文字自動換行 */
-    overflow: hidden; /* 防止文字超出按鈕範圍 */
-    
+    word-wrap: break-word; /* 長文字換行 */
+    overflow: visible; /* 讓完整的內容顯示 */
+
     /* 按鈕樣式 */
-    background: linear-gradient(45deg, #007bff, #00bfff); /* 霓虹藍漸變 */
-    border-radius: 10px; /* 圓角設計 */
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* 霓虹藍光影 */
+    background: linear-gradient(45deg, #007bff, #00bfff);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
 
     /* 文字樣式 */
-    color: #ffffff !important; /* 強制文字為白色 */
+    color: #ffffff !important; /* 強制字體為白色 */
     font-size: 16px;
     font-weight: bold;
-    text-decoration: none; /* 移除底線 */
-    text-shadow: 0 0 10px #00bfff; /* 霓虹藍色光暈，讓字更清楚 */
+    text-decoration: none;
+    text-shadow: 0 0 10px #00bfff;
 
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 /* 滑鼠懸停效果 */
