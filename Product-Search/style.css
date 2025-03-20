@@ -24,6 +24,7 @@ h1 {
 /* 產品滑動容器 */
 .slider-container {
     display: flex;
+    flex-direction: column; /* 改為垂直方向 */
     align-items: center;
     justify-content: center;
     margin: 20px auto;
@@ -32,53 +33,64 @@ h1 {
     overflow: hidden;
 }
 
-/* 產品滾動區域 */
+/* 產品滾動區域（改為垂直滾動） */
 .product-slider {
-    width: 70%;
-    overflow-x: auto;
+    width: 50%; /* 調整合適寬度 */
+    max-height: 500px; /* 限制最大高度，確保滾動條出現 */
+    overflow-y: auto; /* 允許垂直滾動 */
     scroll-behavior: smooth;
-    white-space: nowrap;
+    display: flex;
+    flex-direction: column; /* 讓內容垂直排列 */
     padding: 10px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* 隱藏水平滾動條 */
+/* 自訂滾動條樣式 */
 .product-slider::-webkit-scrollbar {
-    display: none;
+    width: 8px; /* 滾動條寬度 */
+}
+
+.product-slider::-webkit-scrollbar-track {
+    background: #1a1a1a; /* 滾動條背景 */
+}
+
+.product-slider::-webkit-scrollbar-thumb {
+    background: #00bfff; /* 滑動條顏色 */
+    border-radius: 4px;
+}
+
+.product-slider::-webkit-scrollbar-thumb:hover {
+    background: #0099cc; /* 滑動條 hover 顏色 */
 }
 
 /* 產品列表 */
 .product-list {
     display: flex;
+    flex-direction: column; /* 垂直排列 */
     gap: 15px;
 }
 
 /* 產品按鈕 */
 .product {
-    display: flex; /* 讓內部內容垂直對齊 */
-    align-items: center; /* 讓文字內容垂直居中 */
-    justify-content: center; /* 水平置中 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
-    min-width: 180px; /* 最小寬度 */
-    max-width: 320px; /* 最大寬度，確保長名稱不被擠壓 */
-    height: 60px; /* 統一按鈕高度 */
+    width: 250px; /* 調整寬度 */
+    height: 60px;
     
     padding: 10px 15px;
     text-align: center;
-
-    /* 讓長字完整顯示 */
     white-space: normal; /* 允許換行 */
     word-wrap: break-word; /* 長文字換行 */
     overflow: visible; /* 讓完整的內容顯示 */
 
-    /* 按鈕樣式 */
     background: linear-gradient(45deg, #007bff, #00bfff);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
 
-    /* 文字樣式 */
-    color: #ffffff !important; /* 強制字體為白色 */
+    color: #ffffff !important;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
@@ -89,54 +101,33 @@ h1 {
 
 /* 滑鼠懸停效果 */
 .product:hover {
-    transform: scale(1.1); /* 按鈕放大 10% */
-    box-shadow: 0 0 25px rgba(0, 191, 255, 0.8); /* 強化光暈 */
-    color: #00ffff; /* 滑鼠懸停時字體變亮藍色 */
-}
-
-    /* 按鈕樣式 */
-    background: linear-gradient(45deg, #007bff, #00bfff); /* 霓虹藍漸變 */
-    border-radius: 10px; /* 圓角 */
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* 霓虹光暈 */
-    
-    /* 文字樣式 */
-    color: #ffffff !important; /* 強制字體白色 */
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none; /* 移除底線 */
-    text-shadow: 0 0 10px #00bfff; /* 霓虹藍光，讓字更清楚 */
-    
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-/* 滑鼠懸停效果 */
-.product:hover {
-    transform: scale(1.1); /* 放大效果 */
-    box-shadow: 0 0 25px rgba(0, 191, 255, 0.8); /* 增強光暈 */
-    color: #00ffff; /* 滑鼠懸停時字體變亮藍色 */
-}
-
-
-/* 滑鼠懸停 */
-.product:hover {
     transform: scale(1.1);
     box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
+    color: #00ffff;
 }
 
-/* 左右按鈕 */
+/* 上下移動按鈕 */
 .prev-btn, .next-btn {
-    background: none;
-    border: none;
-    font-size: 30px;
-    color: #00bfff;
+    display: block;
+    width: 120px;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* 按鈕懸停 */
+/* 按鈕懸停效果 */
 .prev-btn:hover, .next-btn:hover {
-    transform: scale(1.2);
-    color: #ffffff;
+    transform: scale(1.1);
+    background-color: #0056b3;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
 }
 
 /* 返回按鈕 */
