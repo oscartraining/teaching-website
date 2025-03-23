@@ -1,15 +1,16 @@
-/* 全局設計 */
-body {
-    background-image: url('../background/product-search.jpeg'); /* 使用背景圖片 */
-    background-size: cover; /* 背景覆蓋整個螢幕 */
-    background-position: center; /* 圖片置中 */
-    background-attachment: fixed; /* 背景固定不滾動 */
-    background-repeat: no-repeat; /* 不重複顯示 */
-    
-    color: #ffffff;
+/* ===== 全局設計（調整滿版 + 去除滾動） ===== */
+html, body {
+    height: 100%;
+    margin: 0; /* 移除上下外距，避免出現垂直滾動條 */
+    overflow: hidden; /* 移除整頁滾動 */
     font-family: 'Arial', sans-serif;
     text-align: center;
-    margin: 50px;
+    background-image: url('../background/product-search.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #ffffff;
 }
 
 /* 標題樣式 */
@@ -19,133 +20,104 @@ h1 {
     text-transform: uppercase;
     color: #00bfff;
     text-shadow: 0 0 15px #00bfff;
+    margin-top: 30px;
 }
 
-/* 產品滑動容器 */
+/* 外層容器：限制高度、置中 */
 .slider-container {
     display: flex;
-    flex-direction: column; /* 改為垂直方向 */
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 20px auto;
-    position: relative;
-    width: 80%;
+    height: 70vh;
+    max-height: 70vh;
     overflow: hidden;
+    margin: 0 auto;
 }
 
-/* 產品滾動區域（改為垂直滾動） */
+/* 可垂直滾動的產品容器 */
 .product-slider {
-    width: 50%; /* 調整合適寬度 */
-    max-height: 500px; /* 限制最大高度，確保滾動條出現 */
-    overflow-y: auto; /* 允許垂直滾動 */
-    scroll-behavior: smooth;
-    display: flex;
-    flex-direction: column; /* 讓內容垂直排列 */
+    height: 100%;
+    width: 100%;
+    max-width: 400px;
+    overflow-y: auto;
     padding: 10px;
-    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
 }
 
-/* 自訂滾動條樣式 */
+/* 美化滾輪 */
 .product-slider::-webkit-scrollbar {
-    width: 8px; /* 滾動條寬度 */
+    width: 8px;
 }
-
-.product-slider::-webkit-scrollbar-track {
-    background: #1a1a1a; /* 滾動條背景 */
-}
-
 .product-slider::-webkit-scrollbar-thumb {
-    background: #00bfff; /* 滑動條顏色 */
-    border-radius: 4px;
+    background-color: #00bfff;
+    border-radius: 5px;
+}
+.product-slider::-webkit-scrollbar-track {
+    background-color: transparent;
 }
 
-.product-slider::-webkit-scrollbar-thumb:hover {
-    background: #0099cc; /* 滑動條 hover 顏色 */
-}
-
-/* 產品列表 */
+/* 垂直排列的產品按鈕列表 */
 .product-list {
     display: flex;
-    flex-direction: column; /* 垂直排列 */
+    flex-direction: column;
+    align-items: center;
     gap: 15px;
 }
 
-/* 產品按鈕 */
+/* 產品按鈕樣式 */
 .product {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    width: 250px; /* 調整寬度 */
+    width: 100%;
+    max-width: 320px;
     height: 60px;
-    
-    padding: 10px 15px;
-    text-align: center;
-    white-space: normal; /* 允許換行 */
-    word-wrap: break-word; /* 長文字換行 */
-    overflow: visible; /* 讓完整的內容顯示 */
-
+    padding: 10px;
     background: linear-gradient(45deg, #007bff, #00bfff);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
-
-    color: #ffffff !important;
+    color: white !important;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
     text-shadow: 0 0 10px #00bfff;
-
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-
-/* 滑鼠懸停效果 */
 .product:hover {
     transform: scale(1.1);
     box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
-    color: #00ffff;
 }
 
-/* 上下移動按鈕 */
+/* 上下按鈕樣式 */
 .prev-btn, .next-btn {
-    display: block;
-    width: 120px;
-    padding: 10px;
-    margin: 10px auto;
-    text-align: center;
     background-color: #007bff;
+    border: none;
     color: white;
-    border-radius: 5px;
+    font-size: 24px;
+    border-radius: 8px;
+    padding: 5px 15px;
+    margin: 10px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-
-/* 按鈕懸停效果 */
 .prev-btn:hover, .next-btn:hover {
-    transform: scale(1.1);
     background-color: #0056b3;
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
 }
 
 /* 返回按鈕 */
 .return {
-    display: inline-block;
     margin-top: 20px;
-    padding: 10px 20px;
+    display: inline-block;
     background-color: #ff4081;
+    padding: 10px 20px;
     color: white;
-    text-decoration: none;
-    font-size: 16px;
     font-weight: bold;
     border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
+    text-decoration: none;
     box-shadow: 0 0 15px rgba(255, 64, 129, 0.6);
+    transition: transform 0.3s ease-in-out;
 }
-
-/* 返回按鈕懸停 */
 .return:hover {
     transform: scale(1.1);
     box-shadow: 0 0 25px rgba(255, 64, 129, 0.9);
