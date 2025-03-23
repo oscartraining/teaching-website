@@ -34,6 +34,7 @@
       cursor: pointer;
       transition: transform 0.2s;
       min-width: 200px;
+      position: relative;
     }
 
     .stage:hover {
@@ -41,15 +42,23 @@
       background-color: #2563eb;
     }
 
-    .control-items, .specs {
+    .control-items {
       display: none;
       margin-top: 10px;
       text-align: left;
       font-size: 14px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 10px;
+      z-index: 10;
     }
 
-    .control-items.active,
-    .specs.active {
+    .control-items.active {
       display: block;
     }
 
@@ -68,62 +77,46 @@
       color: #cbd5e1;
     }
 
-    .popup {
+    .specs {
       display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(3px);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
     }
 
-    .popup-content {
-      background-color: #1e293b;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 500px;
-      color: white;
-      text-align: left;
-      box-shadow: 0 0 20px #00d8ff70;
-      overflow-y: auto;
-      max-height: 80vh;
-    }
-
-    .popup-title {
-      font-size: 20px;
-      color: #38bdf8;
-      font-weight: bold;
-      margin-bottom: 10px;
+    .specs.active {
       display: block;
     }
 
-    .popup-list {
-      font-size: 14px;
-      color: #e2e8f0;
-      padding-left: 10px;
+    .popup {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #38bdf8;
+      z-index: 100;
+      width: 300px;
+      display: none;
     }
 
-    .popup-list div {
-      margin-bottom: 8px;
+    .popup.active {
+      display: block;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: #38bdf8;
     }
 
     .close-btn {
       margin-top: 20px;
-      padding: 8px 16px;
-      background: #00bfff;
-      border: none;
-      border-radius: 6px;
-      color: white;
+      padding: 5px 10px;
+      background: #38bdf8;
+      color: black;
       font-weight: bold;
+      border: none;
       cursor: pointer;
-    }
-
-    .close-btn:hover {
-      background-color: #009ddb;
+      border-radius: 5px;
     }
   </style>
 </head>
@@ -131,32 +124,23 @@
   <h1>Control Plan Flow Chart</h1>
   <div class="flow-container" id="flow-container">Loading...</div>
 
-  <!-- 彈出視窗 -->
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span id="popup-title" class="popup-title">Stage Name</span>
-      <div id="popup-list" class="popup-list"></div>
-      <button id="close-popup" class="close-btn">🔙 返回</button>
-    </div>
+  <div class="popup" id="popup">
+    <h2 id="popup-title">Stage</h2>
+    <div id="popup-content"></div>
+    <button class="close-btn" onclick="document.getElementById('popup').classList.remove('active')">返回</button>
   </div>
 
   <script>
-    const popup = document.getElementById("popup");
-    const popupTitle = document.getElementById("popup-title");
-    const popupList = document.getElementById("popup-list");
-    const closeBtn = document.getElementById("close-popup");
-
-    closeBtn.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
-
     fetch("flow_chart_data.json")
       .then(response => response.json())
       .then(data => {
         const container = document.getElementById("flow-container");
+        const popup = document.getElementById("popup");
+        const popupTitle = document.getElementById("popup-title");
+        const popupContent = document.getElementById("popup-content");
         container.innerHTML = "";
 
-        Object.entries(data).forEach(([stageName, controlItemsObj]) => {
+        Object.entries(data).forEach(([stageName, controls]) => {
           const stageBox = document.createElement("div");
           stageBox.className = "stage";
           stageBox.innerHTML = `<strong>${stageName}</strong>`;
@@ -164,7 +148,7 @@
           const controlList = document.createElement("div");
           controlList.className = "control-items";
 
-          Object.entries(controlItemsObj).forEach(([controlItem, specs]) => {
+          Object.entries(controls).forEach(([controlItem, specs]) => {
             const itemEl = document.createElement("div");
             itemEl.className = "control-item";
             itemEl.textContent = `🔧 ${controlItem}`;
@@ -188,32 +172,32 @@
 
           stageBox.appendChild(controlList);
 
-          // hover 顯示控制項
-          stageBox.addEventListener("mouseover", () => {
+          stageBox.addEventListener("mouseenter", () => {
             controlList.classList.add("active");
           });
+
           stageBox.addEventListener("mouseleave", () => {
-            controlList.classList.remove("active");
+            setTimeout(() => {
+              controlList.classList.remove("active");
+            }, 200);
           });
 
-          // 點擊打開 popup
           stageBox.addEventListener("click", () => {
+            popup.classList.add("active");
             popupTitle.textContent = stageName;
-            popupList.innerHTML = "";
+            popupContent.innerHTML = "";
 
-            Object.entries(controlItemsObj).forEach(([controlItem, specs]) => {
-              const section = document.createElement("div");
-              section.innerHTML = `<strong>🔧 ${controlItem}</strong>`;
+            Object.entries(controls).forEach(([controlItem, specs]) => {
+              const item = document.createElement("div");
+              item.innerHTML = `<strong>🔧 ${controlItem}</strong>`;
               specs.forEach(spec => {
-                const specEl = document.createElement("div");
-                specEl.textContent = `📌 ${spec}`;
-                specEl.style.marginLeft = "20px";
-                section.appendChild(specEl);
+                const s = document.createElement("div");
+                s.className = "spec";
+                s.textContent = `📌 ${spec}`;
+                item.appendChild(s);
               });
-              popupList.appendChild(section);
+              popupContent.appendChild(item);
             });
-
-            popup.style.display = "flex";
           });
 
           container.appendChild(stageBox);
