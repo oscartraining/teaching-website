@@ -74,63 +74,62 @@
   <div class="flow-container" id="flow-container">Loading...</div>
 
   <script>
-    fetch("flow_chart_data.json")
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById("flow-container");
-        container.innerHTML = ""; // 清空 loading
+  fetch("flow_chart_data.json")
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById("flow-container");
+    container.innerHTML = "";
 
-        data.forEach(stageData => {
-          const stageBox = document.createElement("div");
-          stageBox.className = "stage";
-          stageBox.innerHTML = `<strong>${stageData.Stage}</strong>`;
+    // 把 object 轉成陣列迴圈用
+    Object.entries(data).forEach(([stageName, controlItemsObj]) => {
+      const stageBox = document.createElement("div");
+      stageBox.className = "stage";
+      stageBox.innerHTML = `<strong>${stageName}</strong>`;
 
-          const controlList = document.createElement("div");
-          controlList.className = "control-items";
+      const controlList = document.createElement("div");
+      controlList.className = "control-items";
 
-          if (stageData.ControlItems && stageData.ControlItems.length > 0) {
-            stageData.ControlItems.forEach(item => {
-              const itemEl = document.createElement("div");
-              itemEl.className = "control-item";
-              itemEl.textContent = `🔧 ${item.ControlItem}`;
+      if (controlItemsObj && Object.keys(controlItemsObj).length > 0) {
+        Object.entries(controlItemsObj).forEach(([controlItem, specs]) => {
+          const itemEl = document.createElement("div");
+          itemEl.className = "control-item";
+          itemEl.textContent = `🔧 ${controlItem}`;
 
-              const specEl = document.createElement("div");
-              specEl.className = "specs";
-              if (item.Specs && item.Specs.length > 0) {
-                item.Specs.forEach(spec => {
-                  const s = document.createElement("div");
-                  s.className = "spec";
-                  s.textContent = `📌 ${spec}`;
-                  specEl.appendChild(s);
-                });
-              }
-
-              itemEl.addEventListener("click", () => {
-                specEl.classList.toggle("active");
-              });
-
-              controlList.appendChild(itemEl);
-              controlList.appendChild(specEl);
-            });
-          } else {
-            controlList.innerHTML = `<div style="color: #ccc;">No Control Items</div>`;
-          }
-
-          stageBox.appendChild(controlList);
-          stageBox.addEventListener("mouseover", () => {
-            controlList.classList.add("active");
-          });
-          stageBox.addEventListener("mouseleave", () => {
-            controlList.classList.remove("active");
+          const specEl = document.createElement("div");
+          specEl.className = "specs";
+          specs.forEach(spec => {
+            const s = document.createElement("div");
+            s.className = "spec";
+            s.textContent = `📌 ${spec}`;
+            specEl.appendChild(s);
           });
 
-          container.appendChild(stageBox);
+          itemEl.addEventListener("click", () => {
+            specEl.classList.toggle("active");
+          });
+
+          controlList.appendChild(itemEl);
+          controlList.appendChild(specEl);
         });
-      })
-      .catch(error => {
-        document.getElementById("flow-container").textContent = "Failed to load data 😢";
-        console.error("Error loading JSON:", error);
+      } else {
+        controlList.innerHTML = `<div style="color: #ccc;">No Control Items</div>`;
+      }
+
+      stageBox.appendChild(controlList);
+      stageBox.addEventListener("mouseover", () => {
+        controlList.classList.add("active");
       });
+      stageBox.addEventListener("mouseleave", () => {
+        controlList.classList.remove("active");
+      });
+
+      container.appendChild(stageBox);
+    });
+  })
+  .catch(error => {
+    document.getElementById("flow-container").textContent = "Failed to load data 😢";
+    console.error("Error loading JSON:", error);
+  });
   </script>
 </body>
 </html>
