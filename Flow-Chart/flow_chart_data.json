@@ -3,7 +3,288 @@
         "2.1 Soldering control": [
             "2.1.0 Vendor"
         ],
+        "2.2 Sold{
+    "2. Solder Paste": {
+        "2.1 Soldering control": [
+            "2.1.0 Vendor",
+            "2.1.1 Storage temp",
+            "2.1.2 Solder paste return original temperature",
+            "2.1.3 Solder paste amount to the temperature zone",
+            "2.1.4 Validity date of the solder paste (in refrigerator)",
+            "2.1.5 Solder paste (exposure to air)",
+            "2.1.6 Solder paste (not open)",
+            "2.1.7 Solder paste mix"
+        ],
         "2.2 Solder Paste parameter": [
+            "2.2.1 Parameter setting",
+            "2.2.2 Squeegee size",
+            "2.2.3 Squeegee length",
+            "2.2.4 Front print speed",
+            "2.2.5 Rear print speed",
+            "2.2.6 Print pressure",
+            "2.2.7 Separation speed"
+        ],
+        "2.3 Solder Paste program": [
+            "2.3.1.Program Name",
+            "2.3.2 Version"
+        ],
+        "2.4 Stencil": [
+            "2.4.1 Use stencil number",
+            "2.4.2 Use stencil revision",
+            "2.4.3 The 5th point tension value",
+            "2.4.4 Clean screen (auto)",
+            "2.4.5 Clean screen (manual)",
+            "2.4.6 Cleaning (end of production)",
+            NaN
+        ],
+        "2.5 Environment": [
+            "2.5.1 Temperature",
+            "2.5.2 Humidity"
+        ],
+        "2.6 Cycpe Time": [
+            "2.6.1 Stencil cleaning",
+            "2.6.2 PCB (printed)"
+        ]
+    },
+    "3. SPI": {
+        "3.1 Program": [
+            "3.1.1 Program Name",
+            "3.1.2 Program version"
+        ],
+        "3.2 Parameter": [
+            "3.2.1 Solder Thickness (Z)",
+            "3.2.2 Solder shift",
+            "3.2.3 Short",
+            "3.2.4 Excessive solder",
+            "3.2.5 Acceptable standard (area, height, volume)"
+        ],
+        "3.3 SPI abnormal": [
+            "3.3.1 CPK control",
+            "3.3.2 SPI quality monitor",
+            "3.3.3 Yield tracking",
+            "3.3.4 SPI data storage"
+        ]
+    },
+    "4.Surface Mounting": {
+        "4.1 Program": [
+            "4.1.1 Program Name",
+            "4.1.2 Version",
+            "4.1.3 Program match with report materials",
+            "4.1.4 IC number match with the number on the board",
+            "4.1.5 RF material feeder match with material list",
+            "4.1.6 RLC material description match with material list"
+        ],
+        "4.2 Pickupmount vision setting": [
+            "4.2.1 Shiftment lead width"
+        ],
+        "4.3 P/N": [
+            "4.3.1 Corrective Feeder/Component Loading"
+        ],
+        "4.4 TRAY material placement": [
+            "4.4.1 Polarity location",
+            "4.4.2 Polarity location_can't fulfill 4.4.1 (EX: socket)",
+            "4.4.3 Polarity location can't fulfill 4.4.1&4.4.2 (EX: flash)",
+            "4.4.4 Checking polarity",
+            "4.4.5 Loading tray (SOP define)",
+            "4.4.6 Change T&R (SOP define)",
+            "4.4.7 Empty T&R control"
+        ],
+        "4.5 Reject parts": [
+            "4.5.1 0402~0805 chip",
+            "4.5.2 SOT 23type",
+            "4.5.3 Diode",
+            "4.5.4 Over 1206 chip (include)",
+            "4.5.5 Over 1206 NG item (include)",
+            "4.5.6 IC 4~8 feet",
+            "4.5.7 IC >8 feet or special precios material",
+            "4.5.8 Other insertion tyoe stick chip",
+            "4.5.9 Forbidden"
+        ]
+    },
+    "5. N2 Reflow": {
+        "5.1 Program": [
+            "5.1.1 Program Name",
+            "5.1.2 Program version"
+        ],
+        "5.2 Reflow pallet holder": [
+            "5.2.1 Follow the define of PCBA documentation"
+        ],
+        "5.3 Reflow furnance": [
+            "5.3.1 Convey speed",
+            "5.3.2 Heater temp",
+            "5.3.3 Nitrogen, O2 PPM",
+            "5.3.4 Alarm message"
+        ],
+        "5.4 Profile setting": [
+            "5.4.1 Ramp up rate (preheat)",
+            "5.4.2 Ramp up rate (reflow)",
+            "5.4.3 Soaking time (150~190℃)",
+            "5.4.4 Melting time (>220℃)",
+            "5.4.5 Peak temp.",
+            "5.4.6 Cooling rate"
+        ],
+        "5.5 Measure Location": [
+            "5.5.1 Measure Location",
+            "5.5.2 Single BGA temp diff."
+        ]
+    },
+    "6. AOI": {
+        "6.1 AOI check": [
+            "6.1.1 By component setting parameter",
+            "6.1.2 AOI limitation component check location"
+        ],
+        "6.2 Yield Rate": [
+            "6.2.1 Misjudge rate",
+            "6.2.2 Same problem failure",
+            "6.2.3 Alarm Eng machanism: same location"
+        ],
+        "6.3 ESD Tray& Car": [
+            "6.3.1 With ESD tray and moving car"
+        ]
+    },
+    "7. Visual Inspection": {
+        "7.1 Cosmetic check": [
+            "7.1.1 Wistout Missing/ Damaged/Soldering Issue..."
+        ],
+        "7.2 Fail item": [
+            "7.2.1 NG record"
+        ],
+        "7.3 AOI bad repeat points": [
+            "7.3.1 Cycle time 70sec & 1500 component  up",
+            "7.3.2 Cycle time 50sec & 1000 ~ 1500 component",
+            "7.3.3 Cycle time 40sec & 500 ~ 1000 component",
+            "7.3.4 Cycle time 30sec & 500 component down"
+        ]
+    },
+    "8. X-ray\n(IPQC)": {
+        "8.1 Sampling Plan": [
+            "Inspection Rule"
+        ],
+        "8.2 Check soler joint capacity": [
+            "8.2.1 Solder Bridge /  Open",
+            "8.2.2 Bubble of the BGA joint",
+            "8.2.3 QFN grounded copper foil bubble",
+            "8.2.4 QFN ground copper foil tin coverage"
+        ],
+        "8.3 DIP": [
+            "8.3.1 PTH"
+        ],
+        "8.4 Location": [
+            "8.4.1 Measure Location"
+        ]
+    },
+    "9. FQC": {
+        "9.1 Cosmetic check": [
+            "9.1.1 Material / Soldering Issue..."
+        ]
+    },
+    "10. Assembly": {
+        "10.1 Jumper": [
+            "10.1 Qty:xxx",
+            "10.2 Location:xxx"
+        ],
+        "10.2 Heat Sink": [
+            "10.2.1 Qty:xxx",
+            "10.2.2 Location:xxx",
+            "10.2.3 Part number: xxx"
+        ],
+        "10.3 SOCKET": [
+            "10.3.1 Qty:xxx",
+            "10.3.2 Location:xxx",
+            "10.3.3 Part number: xxx",
+            "10.3.4 Electric screwdriver torque value: xxx"
+        ],
+        "10.4 Fixtire depth": [
+            "10.4.1 Flat"
+        ],
+        "10.5 Screw driver": [
+            "10.5.1 Torque",
+            "10.5.1 Seal screw driver",
+            "10.5.2 Measure the torque"
+        ]
+    },
+    "11. Assembly_VI": {
+        "11.1 Stick barcode label": [
+            "11.1.1 S/N Label",
+            "11.1.2 BMC & PWD Label",
+            "11.1.3 Qty:xxx"
+        ],
+        "11.2 Assembly process": [
+            "11.2.1 Missing/ Damaged/..."
+        ]
+    },
+    "12. FW_Burn": {
+        "12.1 Defect Rate": [
+            "12.1.1 Yield Rate",
+            "12.1.2 Same problem"
+        ],
+        "12.2 Test flow": [
+            "12.2.1 Open Short measurement (Location)",
+            "12.2.2 FW Programming / Verification",
+            "12.2.3 Voltage measurement",
+            "12.2.4 Programmimg method"
+        ]
+    },
+    "13. Function test": {
+        "13.1 Defect Rate": [
+            "13.1.1 Yield Rate",
+            "13.1.2 Same problem"
+        ],
+        "13.2 Test flow": [
+            "13.2.1 Follow SOP define"
+        ]
+    },
+    "14. DIP_AOI": {
+        "14.1 AOI check": [
+            "14.1.1 By component setting parameter"
+        ],
+        "14.2 Yield Rate": [
+            "14.1.2 misjudge rate",
+            "14.1.2 Same problem failure"
+        ],
+        "14.3 ESD Tray& Car": [
+            "14.3.1 With ESD tray and moving car"
+        ]
+    },
+    "15. Final_VI": {
+        "15.1 Materials check": [
+            "15.1.1 Part number/version",
+            "15.1.2 B.O.M / EC changes",
+            "15.1.3 Materials appearance"
+        ],
+        "15.2 Board": [
+            "15.2.1 P/N & version",
+            "15.2.2 Check board serial number"
+        ],
+        "15.3 Limit sample": [
+            "15.3.1 Actual physical defects sample"
+        ]
+    },
+    "16. PCBA Packing": {
+        "16.1 Packing standard": [
+            "16.1.1 Follow package standard"
+        ]
+    },
+    "99. Off-Line Repair": {
+        "99.1 Soldering Iron": [
+            "99.1.1 Temperature",
+            "99.1.2 Heating time",
+            "99.1.3 Seal 99.1.1&99.1.2 to prevent OP adjust",
+            "99.1.4 Calibration"
+        ],
+        "99.2 Operaction": [
+            "99.2.1 Component criteria",
+            "99.2.2 Max repair time",
+            "99.2.3 SMT solder paste DC"
+        ],
+        "99.3 BGA repair profile": [
+            "99.3.1 Profile temperture"
+        ],
+        "99.4 PTH rework": [
+            "99.4.1 Process"
+        ]
+    }
+}er Paste parameter": [
             "2.2.1 Parameter setting"
         ],
         "2.3 Solder Paste program ": [
