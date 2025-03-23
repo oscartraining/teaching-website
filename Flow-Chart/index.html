@@ -6,117 +6,98 @@
   <title>Control Plan Flow Chart</title>
   <style>
     body {
-      background-color: #111827;
-      color: white;
-      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #0f0f1a;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
       text-align: center;
-      padding: 30px;
     }
 
     h1 {
-      color: #00d8ff;
-      text-shadow: 0 0 8px #00d8ff;
+      padding: 30px 0 10px;
+      color: #00f6ff;
+      text-shadow: 0 0 15px #00f6ff;
     }
 
     .flow-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
+      padding: 20px;
+      gap: 15px;
     }
 
     .stage {
-      background-color: #1f2937;
+      background: linear-gradient(145deg, #1a1a2e, #1f1f3a);
+      border: 2px solid #00f6ff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 246, 255, 0.3);
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #00d8ff50;
+      min-width: 180px;
+      max-width: 220px;
       cursor: pointer;
-      transition: transform 0.2s;
-      min-width: 200px;
-      position: relative;
+      transition: 0.3s ease;
     }
 
     .stage:hover {
+      background-color: #00f6ff33;
       transform: scale(1.05);
-      background-color: #2563eb;
+      box-shadow: 0 0 30px rgba(0, 246, 255, 0.6);
     }
 
-    .control-items {
-      display: none;
-      margin-top: 10px;
-      text-align: left;
-      font-size: 14px;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background-color: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      padding: 10px;
-      z-index: 10;
-    }
-
-    .control-items.active {
-      display: block;
-    }
-
-    .control-item {
-      margin-top: 5px;
-      cursor: pointer;
-      color: #38bdf8;
-    }
-
-    .control-item:hover {
-      text-decoration: underline;
-    }
-
-    .spec {
-      margin-left: 15px;
-      color: #cbd5e1;
-    }
-
-    .specs {
-      display: none;
-    }
-
-    .specs.active {
-      display: block;
-    }
-
+    /* 彈窗 */
     .popup {
+      display: none;
       position: fixed;
-      top: 20%;
+      top: 10%;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #1e293b;
+      width: 80%;
+      max-width: 800px;
+      max-height: 80%;
+      overflow-y: auto;
+      background-color: #1a1a2e;
+      border: 2px solid #00f6ff;
+      box-shadow: 0 0 30px rgba(0, 246, 255, 0.6);
       padding: 20px;
-      border-radius: 10px;
-      border: 2px solid #38bdf8;
-      z-index: 100;
-      width: 300px;
-      display: none;
-    }
-
-    .popup.active {
-      display: block;
+      border-radius: 15px;
+      z-index: 999;
     }
 
     .popup h2 {
+      color: #00f6ff;
       margin-top: 0;
-      color: #38bdf8;
+    }
+
+    .popup .control-item {
+      text-align: left;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #42c8f4;
+    }
+
+    .popup .spec {
+      margin-left: 20px;
+      text-align: left;
+      color: #ddd;
     }
 
     .close-btn {
-      margin-top: 20px;
-      padding: 5px 10px;
-      background: #38bdf8;
-      color: black;
-      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: #00f6ff;
       border: none;
-      cursor: pointer;
+      color: #000;
+      font-weight: bold;
+      padding: 6px 12px;
       border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00f6ff;
+    }
+
+    .close-btn:hover {
+      background: #0ff;
     }
   </style>
 </head>
@@ -124,88 +105,56 @@
   <h1>Control Plan Flow Chart</h1>
   <div class="flow-container" id="flow-container">Loading...</div>
 
-  <div class="popup" id="popup">
-    <h2 id="popup-title">Stage</h2>
+  <!-- 彈窗 -->
+  <div id="popup" class="popup">
+    <button class="close-btn" onclick="closePopup()">❌ 返回</button>
+    <h2 id="popup-title"></h2>
     <div id="popup-content"></div>
-    <button class="close-btn" onclick="document.getElementById('popup').classList.remove('active')">返回</button>
   </div>
 
   <script>
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
     fetch("flow_chart_data.json")
-      .then(response => response.json())
+      .then(res => res.json())
       .then(data => {
         const container = document.getElementById("flow-container");
-        const popup = document.getElementById("popup");
-        const popupTitle = document.getElementById("popup-title");
-        const popupContent = document.getElementById("popup-content");
-        container.innerHTML = "";
 
-        Object.entries(data).forEach(([stageName, controls]) => {
-          const stageBox = document.createElement("div");
-          stageBox.className = "stage";
-          stageBox.innerHTML = `<strong>${stageName}</strong>`;
+        Object.entries(data).forEach(([stage, controls]) => {
+          const stageEl = document.createElement("div");
+          stageEl.className = "stage";
+          stageEl.innerHTML = `<strong>${stage}</strong>`;
 
-          const controlList = document.createElement("div");
-          controlList.className = "control-items";
+          stageEl.addEventListener("click", () => {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("popup-title").textContent = stage;
 
-          Object.entries(controls).forEach(([controlItem, specs]) => {
-            const itemEl = document.createElement("div");
-            itemEl.className = "control-item";
-            itemEl.textContent = `🔧 ${controlItem}`;
-
-            const specEl = document.createElement("div");
-            specEl.className = "specs";
-            specs.forEach(spec => {
-              const s = document.createElement("div");
-              s.className = "spec";
-              s.textContent = `📌 ${spec}`;
-              specEl.appendChild(s);
-            });
-
-            itemEl.addEventListener("click", () => {
-              specEl.classList.toggle("active");
-            });
-
-            controlList.appendChild(itemEl);
-            controlList.appendChild(specEl);
-          });
-
-          stageBox.appendChild(controlList);
-
-          stageBox.addEventListener("mouseenter", () => {
-            controlList.classList.add("active");
-          });
-
-          stageBox.addEventListener("mouseleave", () => {
-            setTimeout(() => {
-              controlList.classList.remove("active");
-            }, 200);
-          });
-
-          stageBox.addEventListener("click", () => {
-            popup.classList.add("active");
-            popupTitle.textContent = stageName;
-            popupContent.innerHTML = "";
+            const contentDiv = document.getElementById("popup-content");
+            contentDiv.innerHTML = "";
 
             Object.entries(controls).forEach(([controlItem, specs]) => {
-              const item = document.createElement("div");
-              item.innerHTML = `<strong>🔧 ${controlItem}</strong>`;
+              const ctrl = document.createElement("div");
+              ctrl.className = "control-item";
+              ctrl.textContent = `🔧 ${controlItem}`;
+              contentDiv.appendChild(ctrl);
+
               specs.forEach(spec => {
-                const s = document.createElement("div");
-                s.className = "spec";
-                s.textContent = `📌 ${spec}`;
-                item.appendChild(s);
+                const specEl = document.createElement("div");
+                specEl.className = "spec";
+                specEl.textContent = `📌 ${spec}`;
+                contentDiv.appendChild(specEl);
               });
-              popupContent.appendChild(item);
             });
           });
 
-          container.appendChild(stageBox);
+          container.appendChild(stageEl);
         });
       })
-      .catch(error => {
-        document.getElementById("flow-container").textContent = "Failed to load data 😢";
-        console.error("Error loading JSON:", error);
+      .catch(err => {
+        console.error("Failed to load JSON:", err);
+        document.getElementById("flow-container").textContent = "⚠️ Failed to load data";
       });
   </script>
 </body>
