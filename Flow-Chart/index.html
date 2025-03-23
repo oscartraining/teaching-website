@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Control Plan Flow Chart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    .stage {
+      display: inline-block;
+      background-color: #1e3a8a;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .stage:hover {
+      transform: scale(1.05);
+      background-color: #2563eb;
+    }
+    .controls {
+      display: none;
+      text-align: left;
+      margin-top: 10px;
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .stage:hover .controls {
+      display: block;
+    }
+    .specs {
+      margin-top: 5px;
+      margin-left: 15px;
+      display: none;
+      font-size: 0.9em;
+    }
+    .control:hover .specs {
+      display: block;
+    }
+    .control {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Control Plan Flow Chart</h1>
+<div id="flow-chart"></div>
+
+<script>
+  fetch('flow_chart_data.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('flow-chart');
+      Object.entries(data).forEach(([stage, controls]) => {
+        const stageDiv = document.createElement('div');
+        stageDiv.className = 'stage';
+        stageDiv.innerHTML = `<div><strong>${stage}</strong></div>`;
+
+        const controlList = document.createElement('div');
+        controlList.className = 'controls';
+
+        Object.entries(controls).forEach(([controlItem, specs]) => {
+          const controlDiv = document.createElement('div');
+          controlDiv.className = 'control';
+          controlDiv.textContent = controlItem;
+
+          const specList = document.createElement('ul');
+          specList.className = 'specs';
+
+          specs.forEach(spec => {
+            const li = document.createElement('li');
+            li.textContent = spec;
+            specList.appendChild(li);
+          });
+
+          controlDiv.appendChild(specList);
+          controlList.appendChild(controlDiv);
+        });
+
+        stageDiv.appendChild(controlList);
+        container.appendChild(stageDiv);
+      });
+    });
+</script>
+
+</body>
+</html>
