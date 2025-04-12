@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>墓碑現象 Tombstoning - IPC-610</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      padding: 30px;
+    }
+    h1 {
+      color: #0ff;
+      text-align: center;
+    }
+    section {
+      background: rgba(0,0,0,0.6);
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      margin-top: 10px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #0ff;
+    }
+    th {
+      background-color: #0ff;
+      color: #000;
+    }
+    img {
+      margin-top: 10px;
+      max-width: 100%;
+      border: 2px solid #0ff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ff, 0 0 30px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.02);
+      border-color: #ff0;
+      box-shadow: 0 0 12px #ff0, 0 0 40px rgba(255, 255, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <h1>❌ 墓碑現象 Tombstoning</h1>
+
+  <section>
+    <h2>異常說明</h2>
+    <p>墓碑現象指的是片狀元件（如晶片電阻）兩端受熱不均，導致其中一端先熔錫後產生吸力，使元件另一端上翹，類似墓碑豎立狀。</p>
+    <p>常見於元件小、焊墊長度差異大、錫膏分布不均、回焊溫度曲線不良等情況。</p>
+    <p>在 IPC Class 2 標準中，任何導致一端未接觸焊墊、影響導通的翹起情形都被視為 Defect。</p>
+  </section>
+
+  <section>
+    <h2>IPC 標準參考</h2>
+    <ul>
+      <li>📘 IPC-A-610F 章節：8.3.2.9.4</li>
+      <li>🔍 對應檢查環節：AOI、SMT-VI、X-ray</li>
+      <li>📎 適用等級：Class 2（一般商業產品等級）</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>判定標準</h2>
+    <table>
+      <thead>
+        <tr><th>類別</th><th>判定說明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>✅ Target</td><td>元件兩端平貼焊墊並完全焊接</td></tr>
+        <tr><td>✔ Acceptable</td><td>翹起微小但仍具導通能力（特殊情形下允許）</td></tr>
+        <tr><td>❌ Defect</td><td>一端未焊、上翹或空焊，導致電性中斷</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>圖示範例</h2>
+    <svg width="320" height="120" style="background:#222;">
+      <!-- 焊墊 -->
+      <rect x="70" y="90" width="20" height="10" fill="#00bcd4" />
+      <rect x="210" y="90" width="20" height="10" fill="#00bcd4" />
+      <!-- 正常元件 -->
+      <rect x="72" y="70" width="18" height="20" fill="#aaa" />
+      <!-- 墓碑立起 -->
+      <rect x="210" y="60" width="18" height="30" fill="red" />
+      <text x="75" y="65" fill="#0ff">正常</text>
+      <text x="200" y="55" fill="#f00">翹起</text>
+    </svg>
+    <p>左：正常貼附；右：一端翹起造成空焊（墓碑現象）</p>
+    <img src="IPC-610/PHOTO/Tombstone.png" alt="墓碑現象實際圖片">
+  </section>
+</body>
+</html>
+tombstone.html
