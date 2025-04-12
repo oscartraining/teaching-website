@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDIP-VI 波峰焊目視檢查教學</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      padding: 30px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #00eaff;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: rgba(0,0,0,0.7);
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px #0ff;
+    }
+    .defect-section {
+      margin-bottom: 40px;
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .defect-section img {
+      max-width: 300px;
+      border: 2px solid #0ff;
+      border-radius: 8px;
+      display: block;
+      margin: 10px auto;
+    }
+    .defect-section h3 {
+      color: #ff0;
+      border-bottom: 1px solid #0ff;
+      padding-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 SDIP-VI 波峰焊目視檢查｜新人入門教學</h1>
+
+  <div class="grid">
+    <div class="card"><img src="../IPC-610/PHOTO/Short_Circuit.png"><div>短路<br>Short Circuit</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Solder_Skipping.png"><div>漏焊<br>Solder Skipping</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Long_Lead.png"><div>線腳過長<br>Long Lead</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Solder_Void.png"><div>錫洞<br>Solder Void</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Solder_Ball.png"><div>錫珠<br>Solder Ball</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Solder_Residue.png"><div>焊渣<br>Solder Residue</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Insufficient_Solder.png"><div>錫少<br>Insufficient Solder</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Excessive_Solder.png"><div>錫多<br>Excessive Solder</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Solder_Spike.png"><div>錫尖<br>Solder Spike</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Solder_Crack.png"><div>錫裂<br>Solder Crack</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Solder_Bridge.png"><div>錫橋<br>Solder Bridge</div></div>
+    <div class="card"><img src="../IPC-610/PHOTO/Solder_Skirt.png"><div>翻皮<br>Solder Skirt</div></div>
+  </div>
+
+  <h2>📘 詳細異常說明</h2>
+
+  <div class="defect-section">
+    <h3>❌ 錫多 Excessive Solder</h3>
+    <img src="../IPC-610/PHOTO/Excessive_Solder.png">
+    <p><strong>說明：</strong> 錫料堆積超出焊墊範圍，可能短路或與其他腳橋接。</p>
+    <p><strong>常見原因：</strong> 錫膏印刷過多、爐溫不穩、元件偏移導致焊料集中。</p>
+    <p><strong>Class 2 標準：</strong> 若無短路、仍包覆良好且不影響功能，可接受。</p>
+  </div>
+
+  <div class="defect-section">
+    <h3>❌ 錫少 Insufficient Solder</h3>
+    <img src="../IPC-610/PHOTO/Insufficient_Solder.png">
+    <p><strong>說明：</strong> 焊點錫料不足，導致腳位未完全包覆、機械強度或導通不足。</p>
+    <p><strong>常見原因：</strong> 印刷厚度不均、元件位置偏移、加熱不足。</p>
+    <p><strong>Class 2 標準：</strong> 若影響導通或固定，即判定為 Defect。</p>
+  </div>
+
+  <div class="defect-section">
+    <h3>❌ 錫橋 Solder Bridge</h3>
+    <img src="../IPC-610/PHOTO/Solder_Bridge.png">
+    <p><strong>說明：</strong> 相鄰焊點間錫料連接，形成短路。</p>
+    <p><strong>常見原因：</strong> 錫膏印刷過量、貼片偏移、焊料回流流動不均。</p>
+    <p><strong>Class 2 標準：</strong> 造成短路即為 Defect。</p>
+  </div>
+
+  <div class="defect-section">
+    <h3>❌ 錫洞 Solder Void</h3>
+    <img src="../IPC-610/PHOTO/Solder_Void.png">
+    <p><strong>說明：</strong> 焊點內部氣泡形成空洞，影響熱導與機械強度。</p>
+    <p><strong>常見原因：</strong> 焊膏潮濕、加熱不完全、預熱不足。</p>
+    <p><strong>Class 2 標準：</strong> 可容許小空洞，但不能影響結構與導通。</p>
+  </div>
+
+  <div class="defect-section">
+    <h3>❌ 錫裂 Solder Crack</h3>
+    <img src="../IPC-610/PHOTO/Solder_Crack.png">
+    <p><strong>說明：</strong> 焊點形成後產生裂縫，易造成溫升斷點。</p>
+    <p><strong>常見原因：</strong> 溫度變化劇烈、材料膨脹不一致、焊料品質不良。</p>
+    <p><strong>Class 2 標準：</strong> 任何影響導通的裂縫皆為 Defect。</p>
+  </div>
+</body>
+</html>
