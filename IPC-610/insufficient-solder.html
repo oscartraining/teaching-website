@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>焊料不足 Insufficient Solder - IPC-610</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      padding: 30px;
+    }
+    h1 {
+      color: #0ff;
+      text-align: center;
+    }
+    section {
+      background: rgba(0,0,0,0.6);
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      margin-top: 10px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #0ff;
+    }
+    th {
+      background-color: #0ff;
+      color: #000;
+    }
+    img {
+      margin-top: 10px;
+      max-width: 100%;
+      border: 2px solid #0ff;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>❌ 焊料不足 Insufficient Solder</h1>
+
+  <section>
+    <h2>異常說明</h2>
+    <p>當焊接點的焊料不足時，可能導致導通不良或機械固定力不足，這類異常在 AOI 檢查與目視檢查中經常發現。</p>
+    <p>常見原因包含錫膏印刷量不足、元件高度不一致、回焊爐溫曲線不當等。</p>
+  </section>
+
+  <section>
+    <h2>IPC 標準參考</h2>
+    <ul>
+      <li>📘 IPC-A-610F 章節：5.2.1 / 8.3.1.6</li>
+      <li>🔍 對應檢查環節：AOI、SMT-VI、SDIP-VI</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>判定標準</h2>
+    <table>
+      <thead>
+        <tr><th>類別</th><th>判定說明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>✅ Target</td><td>焊料覆蓋整個焊墊，形成良好包覆元件腳</td></tr>
+        <tr><td>✔ Acceptable</td><td>焊料略少，但仍能確保導通與固定力</td></tr>
+        <tr><td>❌ Defect</td><td>焊料過少導致浮腳、空焊、機械不良</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>圖示範例</h2>
+    <svg width="320" height="120" style="background:#222;">
+      <!-- 焊墊 -->
+      <rect x="50" y="80" width="40" height="10" fill="#00bcd4" />
+      <rect x="130" y="80" width="40" height="10" fill="#00bcd4" />
+      <!-- 正常焊錫 -->
+      <rect x="50" y="70" width="40" height="10" fill="#aaa" />
+      <!-- 不足焊錫 -->
+      <rect x="130" y="75" width="20" height="5" fill="red" />
+      <text x="50" y="60" fill="#0ff">正常</text>
+      <text x="130" y="60" fill="#f00">不足</text>
+    </svg>
+    <p>左：正常焊點；右：焊料不足導致覆蓋不良</p>
+    <img src="image.png" alt="實際焊料不足範例圖片">
+  </section>
+</body>
+</html>
