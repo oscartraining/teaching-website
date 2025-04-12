@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元件位移 Part Shift - IPC-610</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      padding: 30px;
+    }
+    h1 {
+      color: #0ff;
+      text-align: center;
+    }
+    section {
+      background: rgba(0,0,0,0.6);
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      margin-top: 10px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #0ff;
+    }
+    th {
+      background-color: #0ff;
+      color: #000;
+    }
+    img {
+      margin-top: 10px;
+      max-width: 100%;
+      border: 2px solid #0ff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ff, 0 0 30px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.02);
+      border-color: #ff0;
+      box-shadow: 0 0 12px #ff0, 0 0 40px rgba(255, 255, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <h1>❌ 元件位移 Part Shift</h1>
+
+  <section>
+    <h2>異常說明</h2>
+    <p>元件位移指的是元件未正確放置於預定位置，導致焊點偏移、焊料無法正確包覆引腳，甚至影響導通。</p>
+    <p>可能原因包含貼裝機偏移、吸嘴異常、錫膏偏印、PCB翹曲或元件尺寸誤差。</p>
+    <p>依據 IPC Class 2 規範，只要焊接仍可導通且無機械風險，部分偏移可接受；但若導通不良或翹腳，則判為 Defect。</p>
+  </section>
+
+  <section>
+    <h2>IPC 標準參考</h2>
+    <ul>
+      <li>📘 IPC-A-610F 章節：8.3.1.7</li>
+      <li>🔍 對應檢查環節：AOI、SMT-VI</li>
+      <li>📎 適用等級：Class 2（一般商業產品等級）</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>判定標準</h2>
+    <table>
+      <thead>
+        <tr><th>類別</th><th>判定說明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>✅ Target</td><td>元件置中，兩端對稱覆蓋於焊墊上</td></tr>
+        <tr><td>✔ Acceptable</td><td>偏移輕微但仍完整覆蓋焊墊並導通良好</td></tr>
+        <tr><td>❌ Defect</td><td>偏移導致引腳懸空、導通不良、焊點無包覆</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>圖示範例</h2>
+    <svg width="320" height="120" style="background:#222;">
+      <!-- 焊墊 -->
+      <rect x="60" y="90" width="30" height="10" fill="#00bcd4" />
+      <rect x="140" y="90" width="30" height="10" fill="#00bcd4" />
+      <!-- 正常元件 -->
+      <rect x="60" y="70" width="110" height="15" fill="#aaa" />
+      <!-- 偏移元件 -->
+      <rect x="170" y="60" width="110" height="15" fill="red" />
+      <text x="75" y="65" fill="#0ff">正常</text>
+      <text x="190" y="55" fill="#f00">偏移</text>
+    </svg>
+    <p>左：元件居中貼合；右：元件偏移焊墊，造成接觸不良風險</p>
+    <img src="../IPC-610/PHOTO/Part_Shift.png" alt="元件位移異常圖片">
+  </section>
+</body>
+</html>
