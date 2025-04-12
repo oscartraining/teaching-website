@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>短路 Short Circuit - IPC-610</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      padding: 30px;
+    }
+    h1 {
+      color: #0ff;
+      text-align: center;
+    }
+    section {
+      background: rgba(0,0,0,0.6);
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      margin-top: 10px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #0ff;
+    }
+    th {
+      background-color: #0ff;
+      color: #000;
+    }
+    img {
+      margin-top: 10px;
+      max-width: 100%;
+      border: 2px solid #0ff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ff, 0 0 30px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.02);
+      border-color: #ff0;
+      box-shadow: 0 0 12px #ff0, 0 0 40px rgba(255, 255, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <h1>❌ 短路 Short Circuit</h1>
+
+  <section>
+    <h2>異常說明</h2>
+    <p>短路是指兩個或多個焊點之間因焊料連接或橋接而造成非預期導通，是最關鍵的電性異常之一。</p>
+    <p>通常在零件間距過小、焊料量過多、元件偏移或焊接溫控失效時出現。</p>
+    <p>根據 IPC Class 2 標準，任何可能造成功能性短路或導電失效的現象都視為 Defect，需立即排除。</p>
+  </section>
+
+  <section>
+    <h2>IPC 標準參考</h2>
+    <ul>
+      <li>📘 IPC-A-610F 章節：5.2.7.2</li>
+      <li>🔍 對應檢查環節：AOI、SMT-VI、ICT</li>
+      <li>📎 適用等級：Class 2（一般商業產品等級）</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>判定標準</h2>
+    <table>
+      <thead>
+        <tr><th>類別</th><th>判定說明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>✅ Target</td><td>各焊點獨立且彼此絕緣</td></tr>
+        <tr><td>✔ Acceptable</td><td>焊點接近但未導通，仍符合間距規範（Class 2 容許）</td></tr>
+        <tr><td>❌ Defect</td><td>焊料橋接造成焊點短路，或電氣測試失效</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>圖示範例</h2>
+    <svg width="320" height="120" style="background:#222;">
+      <!-- 焊墊 -->
+      <rect x="60" y="80" width="20" height="10" fill="#00bcd4" />
+      <rect x="110" y="80" width="20" height="10" fill="#00bcd4" />
+      <!-- 獨立焊點 -->
+      <rect x="60" y="70" width="20" height="10" fill="#aaa" />
+      <!-- 短路橋接 -->
+      <rect x="110" y="70" width="20" height="10" fill="#aaa" />
+      <rect x="80" y="72" width="30" height="6" fill="red" />
+      <text x="58" y="60" fill="#0ff">正常</text>
+      <text x="110" y="60" fill="#f00">短路</text>
+    </svg>
+    <p>左：獨立焊點；右：焊料橋接造成短路現象</p>
+    <img src="IPC-610/PHOTO/Short_Circuit.png" alt="短路異常圖片">
+  </section>
+</body>
+</html>
