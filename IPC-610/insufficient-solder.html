@@ -40,6 +40,13 @@
       max-width: 100%;
       border: 2px solid #0ff;
       border-radius: 10px;
+      box-shadow: 0 0 10px #0ff, 0 0 30px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.02);
+      border-color: #ff0;
+      box-shadow: 0 0 12px #ff0, 0 0 40px rgba(255, 255, 0, 0.4);
     }
   </style>
 </head>
@@ -50,6 +57,7 @@
     <h2>異常說明</h2>
     <p>當焊接點的焊料不足時，可能導致導通不良或機械固定力不足，這類異常在 AOI 檢查與目視檢查中經常發現。</p>
     <p>常見原因包含錫膏印刷量不足、元件高度不一致、回焊爐溫曲線不當等。</p>
+    <p>我們所採用的標準為 IPC Class 2，適用於一般電子產品，如伺服器、通訊設備、工控板等，其要求雖不如 Class 3 嚴格，但仍須確保焊點<strong>可靠性與功能性</strong>。因此，焊料過少若影響導通或固定力，即視為 Defect。</p>
   </section>
 
   <section>
@@ -57,6 +65,7 @@
     <ul>
       <li>📘 IPC-A-610F 章節：5.2.1 / 8.3.1.6</li>
       <li>🔍 對應檢查環節：AOI、SMT-VI、SDIP-VI</li>
+      <li>📎 適用等級：Class 2（一般商業產品等級）</li>
     </ul>
   </section>
 
@@ -68,8 +77,8 @@
       </thead>
       <tbody>
         <tr><td>✅ Target</td><td>焊料覆蓋整個焊墊，形成良好包覆元件腳</td></tr>
-        <tr><td>✔ Acceptable</td><td>焊料略少，但仍能確保導通與固定力</td></tr>
-        <tr><td>❌ Defect</td><td>焊料過少導致浮腳、空焊、機械不良</td></tr>
+        <tr><td>✔ Acceptable</td><td>焊料略少，但仍能確保導通與固定力（Class 2 容許）</td></tr>
+        <tr><td>❌ Defect</td><td>焊料過少導致浮腳、空焊、機械不良，Class 2 下亦不可接受</td></tr>
       </tbody>
     </table>
   </section>
